@@ -14,7 +14,9 @@ public class PayrollCalculator2 {
 
             String input;
             while((input = bufferedReader.readLine()) != null) {
-                System.out.println(input);
+                String[] sections = input.split("\\|");
+                Employee employee = new Employee(Integer.parseInt(sections[0].trim()), sections[1].trim(), Double.parseDouble(sections[2].trim()), Double.parseDouble(sections[3].trim()));
+                System.out.printf("Employee %d: %s made %.2f gross for the month. \n ", employee.getId(),employee.getName(), employee.calculateGrossPay());
             }
 
         } catch (FileNotFoundException e) {
